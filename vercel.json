@@ -1,31 +1,30 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "zadechatapi/wsgi.py",
-        "use": "@vercel/python",
-        "config": {
-          "maxLambdaSize": "15mb",
-          "runtime": "python3.9"
-        }
-      },
-      {
-        "src": "build_files.sh",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "staticfiles_build"
-        }
+  "version": 2,
+  "builds": [
+    {
+      "src": "zadechatapi/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
       }
-    ],
-    "routes": [
-      {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "zadechatapi/wsgi.py"
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles_build/static"
       }
-    ],
-    "buildCommand": "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python3.9 get-pip.py && python3.9 -m pip install -r requirements.txt && python3.9 manage.py collectstatic --noinput --clear"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "zadechatapi/wsgi.py"
+    }
+  ]
 }
