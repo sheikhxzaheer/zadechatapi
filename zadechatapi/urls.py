@@ -22,4 +22,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
+    path('api/v1/', include('chatapi.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

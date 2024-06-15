@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chatapi',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,12 +77,12 @@ WSGI_APPLICATION = 'zadechatapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 DATABASES = {
     'default': {
@@ -88,7 +90,7 @@ DATABASES = {
         'NAME': 'verceldb',
         'USER': 'default',
         'PASSWORD': 'zU0cw2lGpNBA',
-        'HOST': 'ep-steep-glade-805441-pooler.ap-southeast-1.postgres.vercel-storage.com',
+        'HOST': 'ep-steep-glade-805441-pooler.ap-southeast-1.aws.neon.tech',
         'PORT': '',
         
     }
