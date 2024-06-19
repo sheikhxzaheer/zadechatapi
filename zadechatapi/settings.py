@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'chatapi',
     'rest_framework',
 ]
+
+ASGI_APPLICATION = "zadechatapi.asgi.application"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -72,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'zadechatapi.wsgi.application'
+# WSGI_APPLICATION = 'zadechatapi.wsgi.application'
 
 
 # Database
